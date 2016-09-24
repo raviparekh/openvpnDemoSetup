@@ -5,6 +5,8 @@
 
 Create a linux user by adding the user to openvpn_playbook.yml. To generate the hash for the user password follow:
 
+(Installing pip: https://packaging.python.org/installing/)
+
 1) `pip install passlib`
 
 This will install the required dependencies
