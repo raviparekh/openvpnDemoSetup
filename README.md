@@ -28,7 +28,7 @@ Please run this command:
 
 `google-authenticator -t -f -d --qr-mode=NONE -r 3 -R 30 -w 1 --secret={USER_ID}_google_authenticator`
 
-(Copy the '.google_authenticator' file to roles/openvpn/keys/googleAuthenticator/{USER_ID}_google_authenticator)
+(Copy the '{USER_ID}_google_authenticator' file to roles/openvpn/keys/googleAuthenticator/{USER_ID}_google_authenticator)
 
 ## 3. Add generated secret key to Google authenticator on phone
 
@@ -48,7 +48,7 @@ Go to the relevant terraform module and run:
 
 `terraform destory`
 
-The tunnelblickconfig folder contains the client config which can be used in Tunnel Blick.
+The `tunnelblickconfig` folder contains the client config which can be used in Tunnel Blick.
 Please note to update the config with the domain name or public IP of the instance running open vpn.
 Search for '{ENTER_PUBLIC_IP_FOR_OPENVPN}' in `opendemo.ovpn`
 
@@ -56,7 +56,7 @@ Search for '{ENTER_PUBLIC_IP_FOR_OPENVPN}' in `opendemo.ovpn`
 
 Run the provision_openvpn script under ansible directory
 
-Note: The openvpn server configuration is done in a way so that it will push out routes for the VPC rather than re-routing all traffic of the client via the VPN (split tunneling). The routes will need to be updated for your VPC CIDR block. See roles/openvpn/templates/server.j2  
+Note: The openvpn server has been configured for split tunneling. This will push out routes for the VPC rather than re-routing all traffic of the client via the VPN. The routes will need to be updated for your VPC CIDR block. See roles/openvpn/templates/server.j2  
 '# push vpc route
 push "route 10.10.0.0 255.255.255.0"' for example
 
