@@ -1,0 +1,13 @@
+---
+- name: "Provision Bastion Host"
+  hosts: "tag_for_ansible_test_bastion"
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  gather_facts: no
+  pre_tasks:
+    - group: name=developers state=present system=yes
+    - user: name=test password=$6$rounds=656000$ZposxAAuf7vskp0o$midu0V4zG6YqKe3/PCZ746dQH6zP0ID5rFNyF4kUAgC3xP1iVxqQ/v2qYcToob3eSrU3Op..TvcKqHLcBnJu7/ groups=sudo,developers shell=/bin/bash
+    - apt: update_cache=yes
+  roles:
+    - openvpn

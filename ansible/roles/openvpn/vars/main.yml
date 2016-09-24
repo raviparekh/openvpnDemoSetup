@@ -1,0 +1,6 @@
+---
+openvpn_etcdir: /etc/openvpn
+openvpn_key_size: 2048
+openvpn_keydir: "{{openvpn_etcdir}}/keys"
+openvpn_user: root
+openvpn_subnet_cidr: 10.8.0.0/24
