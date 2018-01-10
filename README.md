@@ -1,11 +1,20 @@
 # OpenVPN Demo Project with 2FA using time based tokens
+####  Runs on Ubuntu
+
 ## IMPORTANT: As this is a demo project when using this demo project as a base to getting started on your setup, please ensure you re-generate all the relevant keys and take relevant security measures to protect them
+
+
+## Install dependencies
+
+Terraform 0.11.2 - Use your OS package manager to install terraform
+Python 2.7 - Use your OS package manager to download Python (Usually comes with PIP, if not go to the link below)
+PIP - https://pip.pypa.io/en/stable/installing/
+Ansible 2.4.2.0 - Use PIP to install (pip install ansible==2.4.2.0)
+Boto 2.48.0 - Use pip to install
 
 ## Adding new users:
 
 Create a linux user by adding the user to openvpn_playbook.yml. To generate the hash for the user password follow:
-
-(Installing pip: https://packaging.python.org/installing/)
 
 1) `pip install passlib`
 
@@ -13,7 +22,9 @@ This will install the required dependencies
 
 2) `python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())"`
 
-This will prompt you for a password and print the hashed value, copy the entire string over the open vpn playbook for your username.
+3) This will prompt you for a password and print the hashed value
+
+4) Copy the entire string over the open vpn playbook for your username.
 
 ## How to generate your google_authenticator file.
 
@@ -40,6 +51,8 @@ Please run this command:
 
 Go to the relevant terraform module and run: 
 
+`terraform init`
+
 `terraform apply`
 
 Ensure the AWS credential file is created on your machine. Path: ~/.aws/credentials
@@ -57,10 +70,6 @@ Search for '{ENTER_PUBLIC_IP_FOR_OPENVPN}' in `opendemo.ovpn`
 ## Provisioning openvpn
 
 Run the provision_openvpn script under ansible directory
-
-Note: The openvpn server has been configured for split tunneling. This will push out routes for the VPC rather than re-routing all traffic of the client via the VPN. The routes will need to be updated for your VPC CIDR block. See roles/openvpn/templates/server.j2  
-'# push vpc route
-push "route 10.10.0.0 255.255.255.0"' for example
 
 ## Generating new certs and private keys
 

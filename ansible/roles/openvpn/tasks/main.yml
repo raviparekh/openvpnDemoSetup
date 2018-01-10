@@ -1,16 +1,21 @@
 ---
+
+- name: Install ntp daemon
+  apt:
+    name: ntp
+    state: present
+
+- name: Setup ntp
+  copy:
+    src: ../configs/ntp.conf
+    dest: "/etc/ntp.conf"
+
 - include: googleAuth.yml
 
 - name: "Openvpn: Install dependencies."
   apt: name={{ item }} state=present
   with_items:
   - make
-
-- name:  Add apt key for openvpn repos
-  apt_key: url="https://swupdate.openvpn.net/repos/repo-public.gpg"
-
-- name: Add openvpn apt-repo
-  apt_repository: repo='deb http://swupdate.openvpn.net/apt trusty main' state=present
 
 - name: Install openvpn
   apt: name=openvpn state=present

@@ -137,8 +137,6 @@ ifconfig-pool-persist ipp.txt
 # back to the OpenVPN server.
 ;push "route 192.168.20.0 255.255.255.0"
 
-# push vpc route
-push "route 10.10.0.0 255.255.255.0"
 
 # To assign specific IP addresses to specific
 # clients or if a connecting client has a private
@@ -188,7 +186,7 @@ push "route 10.10.0.0 255.255.255.0"
 # (The OpenVPN server machine may need to NAT
 # or bridge the TUN/TAP interface to the internet
 # in order for this to work properly).
-#push "redirect-gateway def1"
+push "redirect-gateway def1"
 
 # Certain Windows-specific network settings
 # can be pushed to clients, such as DNS
@@ -198,7 +196,6 @@ push "route 10.10.0.0 255.255.255.0"
 # DNS servers provided by opendns.com.
 # aws nameserver ip for vpc
 push "dhcp-option DNS 10.10.0.2"
-
 push "dhcp-option DNS 8.8.8.8"
 
 # Uncomment this directive to allow different
@@ -244,7 +241,7 @@ keepalive 10 120
 # on the server and '1' on the clients.
 ;tls-auth ta.key 0 # This file is secret
 
-tls-version-min 1.2
+#tls-version-min 1.2
 
 # Select a cryptographic cipher.
 # This config item must be copied to

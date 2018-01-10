@@ -1,6 +1,6 @@
 resource "aws_instance" "bastion" {
-  ami = "ami-ed82e39e"
-  instance_type = "m3.large"
+  ami = "ami-2e832957"
+  instance_type = "t2.micro"
   key_name = "openvpnDemo"
   security_groups = ["${aws_security_group.management-bastion-security-group.id}"]
   subnet_id = "${aws_subnet.public_subnet.id}"
