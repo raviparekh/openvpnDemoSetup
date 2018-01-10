@@ -7,9 +7,13 @@
 ## Install dependencies
 
 Terraform 0.11.2 - Use your OS package manager to install terraform
+
 Python 2.7 - Use your OS package manager to download Python (Usually comes with PIP, if not go to the link below)
+
 PIP - https://pip.pypa.io/en/stable/installing/
+
 Ansible 2.4.2.0 - Use PIP to install (pip install ansible==2.4.2.0)
+
 Boto 2.48.0 - Use pip to install
 
 ## Adding new users:
