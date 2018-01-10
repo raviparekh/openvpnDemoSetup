@@ -50,7 +50,7 @@ Go to the relevant terraform module and run:
 
 `terraform destory`
 
-The `tunnelblickconfig` folder contains the client config which can be used in Tunnel Blick.
+The `tunnelblickconfig` folder contains the client config which can be used in Tunnel Blick (For Mac, there are other VPN clients available for other platforms, there is a OpenVPN client on at https://openvpn.net).
 Please note to update the config with the domain name or public IP of the instance running open vpn.
 Search for '{ENTER_PUBLIC_IP_FOR_OPENVPN}' in `opendemo.ovpn`
 
